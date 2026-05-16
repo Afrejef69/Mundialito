@@ -1,0 +1,249 @@
+:root {
+    --bg-color: #f4f6f9;
+    --card-bg: #ffffff;
+    --text-color: #333333;
+    --primary-color: #007bff;
+    --primary-hover: #0056b3;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --purple-color: #6f42c1;
+    --border-radius: 8px;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 20px;
+    line-height: 1.6;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #1a202c;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr; /* Por defecto una sola columna (Móvil primero) */
+    gap: 20px;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.card h2 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--bg-color);
+    padding-bottom: 8px;
+    color: #2d3748;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cbd5e0;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: var(--primary-color);
+    color: white;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+button:hover {
+    background-color: var(--primary-hover);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+.btn-edit {
+    background-color: #3498db;
+    color: white;
+}
+
+.btn-edit:hover {
+    background-color: #2980b9;
+    transform: scale(1.03);
+}
+
+.btn-delete {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.btn-delete:hover {
+    background-color: nowrap;
+    text-align: center;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto; /* Permite scroll horizontal en pantallas muy pequeñas */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    text-align: left;
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+th {
+    background-color: #edf2f7;
+    font-weight: 600;
+}
+
+table button {
+    background-color: transparent;
+    padding: 5px;
+}
+table button:hover {
+    background-color: #fee2e2;
+}
+
+#tablaEquipos button, #tabkeGrupos button {
+    padding: 6px 12px;
+    margin: 2px;
+    border: none;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.sorteo-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.btn-sorteo {
+    background-color: var(--purple-color);
+}
+.btn-sorteo:hover {
+    background-color: #5a32a3;
+}
+
+.btn-save {
+    background-color: var(--success-color);
+    width: 100%;
+    margin-top: 20px;
+}
+.btn-save:hover {
+    background-color: #1e7e34;
+}
+
+.preview-container {
+    display: grid;
+    grid-template-columns: 1fr; /* Móvil: 1 columna */
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.grupo-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 15px;
+}
+
+.grupo-box h3 {
+    color: var(--purple-color);
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    border-bottom: 1px solid #cbd5e0;
+    padding-bottom: 4px;
+}
+
+.grupo-box ul {
+    list-style: none;
+}
+
+.grupo-box li {
+    padding: 6px 0;
+    border-bottom: 1px dashed #e2e8f0;
+}
+.grupo-box li:last-child {
+    border-bottom: none;
+}
+
+/* Tablets */
+@media (min-width: 768px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr); /* Divide la pantalla en 2 columnas principales */
+    }
+
+    .wide {
+        grid-column: span 2; /* La sección de sorteo ocupa el ancho completo */
+    }
+
+    .sorteo-controls {
+        flex-direction: row; /* Pone el input y el botón de sorteo a la par */
+        align-items: center;
+    }
+
+    .sorteo-controls input {
+        max-width: 250px;
+    }
+
+    .preview-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 grupos por fila en tablets */
+    }
+}
+
+/* Laptops y pantallas de escritorio */
+@media (min-width: 1024px) {
+    .preview-container {
+        grid-template-columns: repeat(4, 1fr); /* 4 grupos por fila (Formato Mundial) */
+    }
+}

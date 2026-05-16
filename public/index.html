@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión Mundial 2026</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Gestión de Grupos - Mundial 2026</h1>
+
+    <div class="container">
+        <div class="forms-section">
+            <section class="card">
+                <h2>Registrar Equipo</h2>
+                <form id="formEquipo">
+                    <input type="text" id="nombre_pais" placeholder="Nombre del País" required>
+                    <input type="text" id="codigo_fifa" placeholder="Código FIFA (3 letras)" maxlength="3" required>
+                    <input type="text" id="director_tecnico" placeholder="Director Técnico" required>
+                    <input type="number" id="ranking_fifa" placeholder="Ranking FIFA" required>
+                    <input type="number" id="cantidad_jugadores" placeholder="Jugadores (23-26)" min="23" max="26" required>
+                    <button type="submit">Guardar Equipo</button>
+                </form>
+            </section>
+
+            <section class="card">
+                <h2>Registrar Grupo</h2>
+                <form id="formGrupo">
+                    <input type="text" id="nombre_grupo" placeholder="Ej: Grupo A" required>
+                    <textarea id="descripcion" placeholder="Descripción del grupo" required></textarea>
+                    <button type="submit">Guardar Grupo</button>
+                </form>
+            </section>
+        </div>
+
+        <div class="data-section">
+            <section class="card">
+                <h2>Grupos</h2>
+                <div class="table-wrapper">
+                    <table id="tablaGrupos">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>Equipos en DB</h2>
+                <div class="table-wrapper">
+                    <table id="tablaEquipos">
+                        <thead><tr><th>País</th><th>Código</th><th>Acción</th></tr></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+
+        <section class="card wide">
+            <h2>Configuración del Sorteo</h2>
+            <div class="sorteo-controls">
+                <input type="number" id="numGruposSolicitados" placeholder="N° de grupos a formar" min="2">
+                <button id="btnGenerar" class="btn-sorteo">Generar Asignación Aleatoria</button>
+            </div>
+            
+            <div id="vistaPreviaSorteo" class="preview-container">
+                </div>
+            
+            <button id="btnGuardarSorteo" class="btn-save" style="display:none;">Guardar Distribución Final</button>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+services:
+  db-mundial:
+    image: mariadb:latest
+    container_name: mariadb_mundial
+    restart: always
+    environment:
+      - MARIADB_ROOT_PASSWORD=root_password
+      - MARIADB_DATABASE=mundial_db
+      - MARIADB_USER=jeffrey
+      - MARIADB_PASSWORD=Jeffrey1234
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./init-db:/docker-entrypoint-initdb.d
+      - mariadb_data:/var/lib/mysql
+
+volumes:
+  mariadb_data:

@@ -1,0 +1,20 @@
+# Dependencias de Node.js
+node_modules/
+
+# Archivos de configuración local y contraseña
+.env
+
+# Almacenamiento persistente de Docker
+mysql_data/
+mariadb_data/
+data/
+
+# Archivos del sistema operativo o editor de código
+.DS_Store
+.vscode/
+.idea/
+
+# Archivos de logs de errores
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
